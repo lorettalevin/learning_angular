@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-warningalert',
   template: `
         <h3>WARNING: You are in danger!</h3>
-  `
+  `,
   styles: [`
         h3 {
             color: red;
