@@ -14,6 +14,10 @@ export class ServersComponent implements OnInit {
   serverCreationStatus = 'No server was created!';
   serverName = 'Testserver';
   userName = ''
+  newUsername = ''
+  serverCreated = false;
+  servers = ['Testserver', 'Testserver 2']
+  showDetails = false;
 
   constructor() {
     setTimeout(() => {
@@ -25,6 +29,8 @@ export class ServersComponent implements OnInit {
   }
 
   onCreateServer() {
+    this.serverCreated = true;
+    this.servers.push(this.serverName)
     this.serverCreationStatus = 'Server was created! Name is ' + this.serverName
   }
 
@@ -38,5 +44,9 @@ export class ServersComponent implements OnInit {
 
   onResetUsername() {
     this.newUsername = "Username has been reset to: " + this.userName
+  }
+
+  onShowDetails() {
+      this.showDetails = true;
   }
 }

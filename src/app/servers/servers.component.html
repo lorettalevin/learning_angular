@@ -13,10 +13,13 @@
     [disabled]="!allowNewServer"
     (click)="onCreateServer()">Add Server</button>
 <!-- <p [innerText]="allowNewServer"></p> -->
-<p>{{ serverCreationStatus }}</p>
+<!-- <p>{{ serverCreationStatus }}</p> -->
+<p *ngIf="serverCreated; else noServer">Server was created, server name is {{ serverName }}!</p>
+<ng-template #noServer>
+    <p>No Server was created!</p>
+</ng-template>
 
-<app-server></app-server>
-<app-server></app-server>
+<app-server *ngFor="let server of servers"></app-server>
 
 <label>Username</label>
 <input
@@ -32,3 +35,9 @@
     (click)="onResetUsername()">Reset Username</button>
 
 <p>{{ newUsername }}</p>
+
+<button
+    class="btn btn-primary"
+    (click)="onShowDetails()">Display Details</button>
+
+<p *ngIf="showDetails">There's always money in a banana stand</p>
